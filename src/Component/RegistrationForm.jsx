@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 function RegistrationForm() {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
+  
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
+  const confirmPassword = useState(null);
   const UserData = {
     firstName,
-    lastName,
+   
     email,
     password,
     confirmPassword,
@@ -21,18 +21,14 @@ function RegistrationForm() {
     if (id === "firstName") {
       setFirstName(value);
     }
-    if (id === "lastName") {
-      setLastName(value);
-    }
+    
     if (id === "email") {
       setEmail(value);
     }
     if (id === "password") {
       setPassword(value);
     }
-    if (id === "confirmPassword") {
-      setConfirmPassword(value);
-    }
+    
   };
   const Redirect = () => {
     if (localStorage.getItem("user")) {
@@ -41,7 +37,7 @@ function RegistrationForm() {
   };
 
   const handleSubmit = () => {
-    //console.log(firstName,lastName,email,password,confirmPassword);
+   
     localStorage.setItem("user", JSON.stringify(UserData));
     alert("Sucessfully Registered");
     Redirect();
