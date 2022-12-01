@@ -38,7 +38,7 @@ const Home = () => {
       >
         user: {localStorage.getItem("user")}
       </div>
-      <button style={{marginTop:'40px',color:'white',backgrounColor:"blue" ,width:'80px',marginLeft:'400px',height:'30px',borderRadius:'10px'}}
+      <button style={{marginTop:'40px',backgrounColor:"blue" ,width:'80px',marginLeft:'400px',height:'30px',borderRadius:'10px'}}
       onClick={handleLogout}
       
       >
