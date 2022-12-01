@@ -1,71 +1,39 @@
 import "./Style.css";
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function RegistrationForm() {
-  const navigate = useNavigate();
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
+function Login() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
-  const UserData = {
-    firstName,
-    lastName,
-    email,
-    password,
-    confirmPassword,
-  };
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    if (id === "firstName") {
-      setFirstName(value);
-    }
-    if (id === "lastName") {
-      setLastName(value);
-    }
+
     if (id === "email") {
       setEmail(value);
     }
     if (id === "password") {
       setPassword(value);
     }
-    if (id === "confirmPassword") {
-      setConfirmPassword(value);
-    }
-  };
-  const Redirect = () => {
-    if (localStorage.getItem("user")) {
-      navigate("/home");
-    }
   };
 
-  const handleSubmit = () => {
+  const handleLogin = () => {
     //console.log(firstName,lastName,email,password,confirmPassword);
-    localStorage.setItem("user", JSON.stringify(UserData));
-    alert("Sucessfully Registered");
-    Redirect();
+    // const data=localStorage.getItem("user", JSON.stringify(user));
+    //console.log(data)
+
+    if (localStorage.getItem("user")) {
+      alert("sucessfully Login");
+      navigate("/home");
+    }
   };
 
   return (
     <div className="form">
       
       <div className="form-body">
-      <h2 style={{alignItem:'center'}}>Registration</h2>
-        <div className="username">
-          <label className="form__label" for="firstName">
-            First Name{" "}
-          </label>
-          <input
-            className="form__input"
-            type="text"
-            value={firstName}
-            onChange={(e) => handleInputChange(e)}
-            id="firstName"
-            placeholder="First Name"
-          />
-        </div>
-
+      <h2>Login</h2>
         <div className="email">
           <label className="form__label" for="email">
             Email{" "}
@@ -103,18 +71,20 @@ function RegistrationForm() {
             width: "90px",
             cursor: "pointer",
           }}
-          onClick={() => handleSubmit()}
+          onClick={handleLogin}
           type="submit"
           class="btn"
         >
-          Register
+          Login
         </button>
         <div >
-            <a href="/login">Already Registered ! Login</a>
+            <a href="/signup">Don't have Acount ? Signup</a>
         </div>
+    
+        
       </div>
     </div>
   );
 }
 
-export default RegistrationForm;
+export default Login;
