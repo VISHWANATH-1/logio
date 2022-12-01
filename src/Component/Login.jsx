@@ -77,7 +77,7 @@ function Login() {
         >
           Login
         </button>
-        <div >
+        <div style={{margin:'2rem'}} >
             <a href="/signup">Don't have Acount ? Signup</a>
         </div>
     

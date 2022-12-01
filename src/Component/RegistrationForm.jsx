@@ -109,7 +109,7 @@ function RegistrationForm() {
         >
           Register
         </button>
-        <div >
+        <div style={{margin:'2rem'}} >
             <a href="/login">Already Registered ! Login</a>
         </div>
       </div>
